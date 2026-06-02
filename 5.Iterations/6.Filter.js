@@ -1,12 +1,12 @@
-// const number = [10,11,12,13,14,15]
+const number = [10,11,12,13,14,15]
 
-// const values = number.forEach( (element) => {
-//     console.log(element-1)
-//     return element
-// })
+const values = number.forEach( (element) => {
+    console.log(element-1)
+    return element
+})
 //For Each does not return a value
 
-// console.log(values)
+console.log(values)
 
 //WHICH IS WHY WE DO THIS :
 
@@ -14,7 +14,7 @@ const Numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 //IMPLICIT RETURN:
 const newnums1 = Numbers.filter((num) => num > 4)
-// console.log (newnums1)
+console.log (newnums1)
 
 //EXPLICIT RETURN:
 const newnums = Numbers.filter((num) => {
@@ -22,7 +22,7 @@ const newnums = Numbers.filter((num) => {
         return num // not console.log as we are in arrow function's block scope
     }
 })
-// console.log (newnums)
+console.log (newnums)
 
 
 const books = [
