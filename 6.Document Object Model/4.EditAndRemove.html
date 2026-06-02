@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function AddToListOptimized (LangName) {
+        const item = document.createElement('li')
+        item.appendChild(document.createTextNode(LangName))
+        document.querySelector('.language').appendChild(item)
+    }
+    AddToListOptimized("MSSQL")
+    AddToListOptimized("GoLang")
+    AddToListOptimized("Java")
+    AddToListOptimized("C++")
+    //EDIT:
+    const SecLang = document.querySelector('li:nth-child(2)')
+    const item = document.createElement('li')
+    item.textContent="Python"
+    SecLang.replaceWith(item)
+    
+    //EDIT NUMBER 2:
+    const FirstLang = document.querySelector('li:first-child')
+    FirstLang.outerHTML = '<li>TypeScript</li>'
+
+    //REMOVE:
+    const LastLang = document.querySelector('li:last-child')
+    LastLang.remove()
+</script>
+</html>
