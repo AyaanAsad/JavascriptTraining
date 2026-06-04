@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+<!-- 0	UNSENT	Client has been created. open() not called yet.<br>
+1	OPENED	open() has been called.<br>
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.<br>
+3	LOADING	Downloading; responseText holds partial data.<br>
+4	DONE	The operation is complete.<br> -->
+<div class="card"> 
+    <img id="profileImage" src="" alt="Profile Image"> 
+    <div class="followers"> Followers: 
+        <span id="followerCount">0
+        </span> 
+    </div>
+ </div>
+</body>
+<script>
+    let image
+    let name
+    const requestURL = 'https://api.github.com/users/ayaanasad'
+    const xhr = new XMLHttpRequest()
+    console.log(xhr.readyState) // 0
+    xhr.open('GET',requestURL) // prepares request
+    console.log(xhr.readyState) // 1
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState) //2, 3, 4
+        if(xhr.readyState === 4){
+            const response = JSON.parse(this.responseText) //converts string to json (object)
+            //console.log (response)
+            image = response.avatar_url
+            name = response.login 
+            document.querySelector('#profileImage').src = image
+            document.querySelector('.followers').innerHTML = name
+        }
+    }
+    xhr.send() //sends request
+</script>
+</html>
