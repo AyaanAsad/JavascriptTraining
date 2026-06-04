@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Practice</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const SayTime = function(str){
+        const date = new Date()
+        const timestamp = date.toLocaleTimeString()
+        console.log(`Lorem Ipsum printed at ${timestamp}, ${str}!!`)
+    }
+
+    let intervalId = 0
+
+    document.querySelector('#start').addEventListener('click',() => {
+        intervalId = setInterval(SayTime, 1000, "HII")
+    })
+
+    document.querySelector('#stop').addEventListener('click',() => {
+        clearInterval(intervalId)
+    })
+</script>
+</html>
